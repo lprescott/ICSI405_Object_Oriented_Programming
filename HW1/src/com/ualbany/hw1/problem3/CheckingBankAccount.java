@@ -8,6 +8,10 @@ package com.ualbany.hw1.problem3;
  *
  * Project Name: HW1
  * Package Name: com.ualbany.hw1.problem3
+ * 
+ * A checking bank account has value, a person can withdraw, deposit
+ * money to the account
+ * 
  */
 public class CheckingBankAccount {
 	
@@ -45,6 +49,8 @@ public class CheckingBankAccount {
 	public void setValue(double value) {
 		this.value = value;
 	}
+	
+	//Constructor(s)
 
 	/**
 	 * @param value

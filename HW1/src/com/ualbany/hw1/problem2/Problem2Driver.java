@@ -124,7 +124,7 @@ public class Problem2Driver extends HW1Problem2{
 				tenFlipsOfACoin();
 				
 			} else {
-				System.out.println("ERROR: User input not from 0-4.");
+				System.out.println("\nERROR: User input not from 0-4.\n");
 				
 			}
 			

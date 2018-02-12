@@ -8,6 +8,9 @@ package com.ualbany.hw1.problem3;
  *
  * Project Name: HW1
  * Package Name: com.ualbany.hw1.problem3
+ * 
+ * A checking bank account has value, a person can withdraw, deposit money to the account
+ * 
  */
 public class Person {
 	

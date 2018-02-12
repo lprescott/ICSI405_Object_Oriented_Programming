@@ -15,6 +15,7 @@ package com.ualbany.hw1.problem1;
  * 
  * The output is as follows (dashes not included):
  * ----------------------------------------------------
+ *  Before each Employee received a 10% raise: 
  * 	The yearly salary for Luke Prescott is: $30001.20.
  *  The yearly salary for Jane Doe is: $39011.40.
  * 
@@ -29,6 +30,9 @@ public class EmployeeTest {
 	 * @param args none accepted
 	 */
 	public static void main(String[] args) {
+		
+		System.out.println("Before each Employee received a 10% raise: ");
+		
 		//Create two Employee objects and display the yearly salary for each Employee:
 		Employee employee1 = new Employee("Luke", "Prescott", 2500.10);
 		Employee employee2 = new Employee("Jane", "Doe", 3250.95);

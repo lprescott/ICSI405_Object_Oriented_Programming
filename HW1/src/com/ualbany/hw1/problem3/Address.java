@@ -8,6 +8,10 @@ package com.ualbany.hw1.problem3;
  *
  * Project Name: HW1
  * Package Name: com.ualbany.hw1.problem3
+ * 
+ * This is a simple class which has all String fields to represent an address (ex. Address
+ * line 1, line2, City, State, Zip)
+ * 
  */
 public class Address {
 	
@@ -98,7 +102,7 @@ public class Address {
 	}
 
 	/*
-	 * 
+	 * This represents an Address when toString is called.
 	 */
 	@Override
 	public String toString() {

@@ -21,7 +21,7 @@ import java.text.DecimalFormat;
  * 		It also checks that monthlySalary is greater than zero, and assigns it to zero if not.
  * 
  * 	getYearlySalary - returns a double (12.0 * an employee's monthly salary).
- * 	giveRaise - accepts a decimal as percent to raise an employees monthly salary
+ * 	giveRaise - accepts a decimal representing a percent to raise an employees monthly salary
  * 	toString - returns an Employee instance represented in a String format.
  *
  * 	Finally, there are getters and setters for all instance variables.
@@ -34,15 +34,15 @@ public class Employee {
 	private double monthlySalary;
 	
 	//Constructor(s):
-	public Employee(String startFirstName, String startLastName, double startMonthlySalary) {
-		firstName = startFirstName;
-		lastName = startLastName;
+	public Employee(String firstName, String lastName, double monthlySalary) {
+		this.firstName = firstName;
+		this.lastName = lastName;
 		
 		//Check if salary is negative:
-		if(startMonthlySalary < 0) {
-			monthlySalary = 0.0;
+		if(monthlySalary < 0) {
+			this.monthlySalary = 0.0;
 		} else {
-			monthlySalary = startMonthlySalary;
+			this.monthlySalary = monthlySalary;
 		}
 	}
 	
