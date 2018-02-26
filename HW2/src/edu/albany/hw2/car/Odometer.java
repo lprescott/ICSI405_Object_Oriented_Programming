@@ -17,12 +17,14 @@ package edu.albany.hw2.car;
 *	See instance variables below.
 *	
 *	This class has two functions:
-*	incrementFuel - This function increments the amount of fuel by 1 gallon. This simulates putting fuel
-*		in the car (The car can hold max 15 gallons).
-*
-*	decrementFuel - This function decrements the amount of fuel by 1 gallon, if the amount of fuel is 
-*	greater than 0 gallons. This simulates burning fuel as the car runs.
+*	1. incrementMilage - This function increments the current mileage by 1 mile. The maximum mileage the
+*		odometer can store is 999,999 miles. When this amount is exceeded, the odometer resets the current 
+*		mileage to 0
 * 
+* 	2. This function works with a FuelGauge object. It decreases the FuelGuage object’s
+*		current amount of fuel by 1 gallon for every 22 miles travelled. (The car’s fuel economy
+*		is 22 miles per gallon)
+*
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 public class Odometer {

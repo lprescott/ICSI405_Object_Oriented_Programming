@@ -43,8 +43,8 @@ public class Stock {
 	
 	//Instance Variable(s)
 	Symbol symbol;
-	double previousClosingPrice;
-	double currentPrice;
+	private double previousClosingPrice;
+	private double currentPrice;
 	
 	//Enumeration(s)
 	public enum Symbol {
