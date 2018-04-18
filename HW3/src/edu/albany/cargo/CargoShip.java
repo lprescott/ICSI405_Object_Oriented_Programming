@@ -55,6 +55,6 @@ public class CargoShip extends Ship{
     @Override
     public String toString(){
         return "Ship name: " + this.get_ship_name() 
-            + "\nCargo capacity: " + this.get_cargo_capacity();
+            + "\nCargo capacity (tonnage): " + this.get_cargo_capacity();
     }
 }

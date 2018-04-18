@@ -82,14 +82,17 @@ public class SandwichDriver {
 			//The cashier attempts to receive payment from the customer
 			//This will fail if the register has too much or the customer has too little
 			Cashier.authenticate(customer, cashier, test_transaction);
+			
 
 		} catch(Exception e) {
 			System.out.println("\n\t" + e.getLocalizedMessage());
+			System.out.println("\nDenied.");
 			return;
 		}
 		
 		//The cashier has successfully authenticated the transaction at this point
 		System.out.println("\n\t\"Here you go.\"");
+		System.out.println("\nApproved.");
 		System.out.println("\n\t\"Have a nice day! Here is your receipt.\"\n");
 		
 		//Print the receipt upon getting to this point

@@ -65,7 +65,7 @@ public class Cashier extends Employee{
 		if((this.cash_register_amount += transaction_total)<300) {
 			this.cash_register_amount += transaction_total;
 		} else {
-			throw new IllegalArgumentException("\"Sorry, one moment, there is too much money in the register.\"");
+			throw new IllegalArgumentException("\"Sorry, there is too much money in the register -- please come back later.\"");
 		}
 	}
 
