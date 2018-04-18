@@ -74,7 +74,7 @@ public class Cashier extends Employee{
 	 * found.
 	 */
 	public void authenticate(Customer customer, Cashier cashier, Transaction test_transaction) {
-		double transaction_total = test_transaction.getPrice();
+		double transaction_total = test_transaction.getPrice() + test_transaction.getTax();
 		customer.pay(transaction_total);
 		cashier.receive(transaction_total);
 	}

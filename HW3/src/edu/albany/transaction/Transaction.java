@@ -78,7 +78,6 @@ public class Transaction {
 		
 		final DecimalFormat df = new DecimalFormat("#.##");
 		
-		
 		//Loop through order
 		double count = 0;
 		for(Sandwich s : this.getOrder()) {
@@ -87,7 +86,6 @@ public class Transaction {
 		
 		//Add tax
 		count = (count * 0.08);
-		
 		return Double.parseDouble(df.format(count));
 	}
 
@@ -106,20 +104,24 @@ public class Transaction {
 	 */
 	public void printReceipt(Customer customer, Cashier cashier, SandwichMaker cook) {
 		NumberFormat formatter = NumberFormat.getCurrencyInstance();
-	
-		System.out.println("\nReceipt (Order # " + Transaction.getOrder_number() + "): ");
-		System.out.println("-------------------------------");
+		String seperator = "-------------------------------";
+		System.out.println(seperator);
+		System.out.println("Receipt (Order # " + Transaction.getOrder_number() + "): ");
+		System.out.println(seperator);
 		System.out.println(String.format("%-25s%s" , "Type", "Price"));
-		System.out.println("-------------------------------");
+		System.out.println(seperator);
+		
 		for(Sandwich s : this.getOrder()) {
 			System.out.println(s.toString());
 		}
-		System.out.println("-------------------------------");
+		
+		System.out.println(seperator);
 		System.out.println(String.format("%-25s%s" , "Tax", formatter.format(this.getTax())));
 		System.out.println(String.format("%-25s%s" , "Total", formatter.format(this.getPrice()+this.getTax())));
-		System.out.println("-------------------------------");
+		System.out.println(seperator);
 		System.out.println("You are being served today by, ");
 		System.out.println(String.format("%15s, cashier, id " + cashier.getEmployee_id(), cashier.getName()));
-		System.out.println(String.format("%15s, cook, id " + cook.getEmployee_id(), cook.getName()));	
+		System.out.println(String.format("%15s, cook, id " + cook.getEmployee_id(), cook.getName()));
+		System.out.println(seperator);
 	}
 }

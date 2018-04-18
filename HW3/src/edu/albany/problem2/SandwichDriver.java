@@ -33,7 +33,7 @@ public class SandwichDriver {
 		//Customer, Cashier, SandwvivavvvichMaker created
 		Customer customer = new Customer("Jane", "Doe", 20.32); //fN, lN, Cash
 		Cashier cashier = new Cashier("Luke", "Prescott", 280.55); //fN, lN, Register Amount
-		SandwichMaker cook = new SandwichMaker("John", "Smith", null); //fN, lN, current_orders
+		SandwichMaker cook = new SandwichMaker("John", "Smith", null); //fN, lN, current_transaction
 		
 		//Printing the menu
 		Menu.printMenu();
