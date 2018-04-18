@@ -23,42 +23,40 @@ import edu.albany.transaction.Transaction;
 */
 public class SandwichMaker extends Employee{
 	
-	private static Transaction current_transaction;
+	private Transaction current_transaction;
 	
 	/*
 	* Constructor accepting first name, last name, employee id, and cash register amount.
     */
 	public SandwichMaker(String new_first_name, String new_last_name, Transaction current_order) {
-		employee_id++;
+		this.setEmployee_id(count);
 		this.setFirst_name(new_first_name);
 		this.setLast_name(new_last_name);
-		SandwichMaker.setCurrent_transaction(current_order);
+		this.setCurrent_transaction(current_order);
 	}
 
 
 	/**
 	 * @return the current_transaction
 	 */
-	public static Transaction getCurrent_transaction() {
+	public Transaction getCurrent_transaction() {
 		return current_transaction;
 	}
-
-
 	/**
 	 * @param current_transaction the current_transaction to set
 	 */
-	public static void setCurrent_transaction(Transaction current_transaction) {
-		SandwichMaker.current_transaction = current_transaction;
+	public void setCurrent_transaction(Transaction current_transaction) {
+		this.current_transaction = current_transaction;
 	}
 	
 	/**
 	 * This function completes the current order, if any, that has been assigned to a SandwichMaker object.
 	 *
 	 */
-	public static void completeOrder() {
-		if(SandwichMaker.getCurrent_transaction().getOrder() != null) {
+	public void completeOrder() {
+		if(this.getCurrent_transaction().getOrder() != null) {
 			System.out.println("\n\t\"Starting order number " + Transaction.getOrder_number() + "!\"\n");
-			for(Sandwich s : SandwichMaker.getCurrent_transaction().getOrder()) {
+			for(Sandwich s : this.getCurrent_transaction().getOrder()) {
 				System.out.println("\t" + s.getName() + " ...done.");
 			}			
 		
@@ -66,7 +64,6 @@ public class SandwichMaker extends Employee{
 		} else {
 			System.out.println("\n\t\"No current orders!\"");
 		}
-
 	}
 
 
@@ -78,5 +75,5 @@ public class SandwichMaker extends Employee{
 	public String toString() {
 		return this.getName();
 	}
-	
+
 }

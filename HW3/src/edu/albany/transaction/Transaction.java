@@ -119,7 +119,7 @@ public class Transaction {
 		System.out.println(String.format("%-25s%s" , "Total", formatter.format(this.getPrice()+this.getTax())));
 		System.out.println("-------------------------------");
 		System.out.println("You are being served today by, ");
-		System.out.println(String.format("%20s, cashier", cashier.getName()));
-		System.out.println(String.format("%20s, cook", cook.getName()));	
+		System.out.println(String.format("%15s, cashier, id " + cashier.getEmployee_id(), cashier.getName()));
+		System.out.println(String.format("%15s, cook, id " + cook.getEmployee_id(), cook.getName()));	
 	}
 }

@@ -28,7 +28,7 @@ public class Cashier extends Employee{
 	* Constructor accepting first name, last name, employee id, and cash register amount.
     */
 	public Cashier(String new_first_name, String new_last_name, double new_cash_register_amount) {
-		employee_id++;
+		this.setEmployee_id(count);
 		this.setFirst_name(new_first_name);
 		this.setLast_name(new_last_name);
 		this.setCash_register_amount(new_cash_register_amount);
@@ -73,7 +73,7 @@ public class Cashier extends Employee{
 	 * This method attempts to call pay and receive (completing the transaction) and throws an exception if a problem is
 	 * found.
 	 */
-	public static void authenticate(Customer customer, Cashier cashier, Transaction test_transaction) {
+	public void authenticate(Customer customer, Cashier cashier, Transaction test_transaction) {
 		double transaction_total = test_transaction.getPrice();
 		customer.pay(transaction_total);
 		cashier.receive(transaction_total);

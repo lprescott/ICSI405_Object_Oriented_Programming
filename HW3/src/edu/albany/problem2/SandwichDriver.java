@@ -32,7 +32,7 @@ public class SandwichDriver {
 		
 		//Customer, Cashier, SandwvivavvvichMaker created
 		Customer customer = new Customer("Jane", "Doe", 20.32); //fN, lN, Cash
-		Cashier cashier = new Cashier("Luke", "Prescott", 282.55); //fN, lN, Register Amount
+		Cashier cashier = new Cashier("Luke", "Prescott", 280.55); //fN, lN, Register Amount
 		SandwichMaker cook = new SandwichMaker("John", "Smith", null); //fN, lN, current_orders
 		
 		//Printing the menu
@@ -81,9 +81,8 @@ public class SandwichDriver {
 		try {
 			//The cashier attempts to receive payment from the customer
 			//This will fail if the register has too much or the customer has too little
-			Cashier.authenticate(customer, cashier, test_transaction);
+			cashier.authenticate(customer, cashier, test_transaction);
 			
-
 		} catch(Exception e) {
 			System.out.println("\n\t" + e.getLocalizedMessage());
 			System.out.println("\nDenied.");
@@ -99,9 +98,9 @@ public class SandwichDriver {
 		test_transaction.printReceipt(customer, cashier, cook);
 		
 		//The sandwiches makes gets assigned the current transaction
-		SandwichMaker.setCurrent_transaction(test_transaction);
+		cook.setCurrent_transaction(test_transaction);
 		
 		//The sandwich maker makes the sandwich(es)
-		SandwichMaker.completeOrder();
+		cook.completeOrder();
 	}
 }

@@ -19,32 +19,42 @@ import edu.albany.person.Person;
 public abstract class Employee extends Person{
 	
 	//Static instance variable
-	protected static int employee_id = 1;
+	protected static int count;
+	private int employee_id;
 
+	public Employee() {
+		this.employee_id = count++;
+	}
+	
+	/**
+	 * @return the count
+	 */
+	public static int getCount() {
+		return count;
+	}
+	/**
+	 * @param count the count to set
+	 */
+	public static void setCount(int count) {
+		Employee.count = count;
+	}
 	/**
 	 * @return the employee_id
 	 */
 	public int getEmployee_id() {
 		return employee_id;
 	}
-
 	/**
 	 * @param employee_id the employee_id to set
 	 */
 	public void setEmployee_id(int employee_id) {
-		Employee.employee_id = employee_id;
+		this.employee_id = employee_id;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see edu.albany.person.Person#toString()
 	 */
 	public abstract String toString();
-	
-	/*
-	 * This creates a default constructor for the Employee object that sets their employee id.
-	 */
-	public Employee() {
-		employee_id++;
-	}
+
 }
