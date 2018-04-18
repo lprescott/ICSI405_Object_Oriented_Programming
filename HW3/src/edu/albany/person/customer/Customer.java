@@ -11,7 +11,6 @@ import edu.albany.person.Person;
 * Start Date: April 17th, 2018
 *
 * Project Name: HW2
-* Package Name: edu.albany.person.customer
 * 
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * 
@@ -21,34 +20,39 @@ import edu.albany.person.Person;
 */
 public class Customer extends Person {
 	
-	private double disposable_income;
+	private double cash;
 
 	/*
 	* Constructor accepting first name, last name and disposable income.
     */
-	public Customer(String new_first_name, String new_last_name, double new_disposable_income) {
-		this.setDisposable_income(new_disposable_income);
+	public Customer(String new_first_name, String new_last_name, double new_cash) {
+		this.setCash(new_cash);
 		this.setFirst_name(new_first_name);
 		this.setLast_name(new_last_name);
 	}
 	
 	/**
-	 * @return the disposable_income
+	 * @return the cash
 	 */
-	public double getDisposable_income() {
-		return disposable_income;
+	public double getCash() {
+		return cash;
 	}
 	/**
-	 * @param disposable_income the disposable_income to set
+	 * @param cash the cash to set
 	 */
-	public void setDisposable_income(double disposable_income) {
-		this.disposable_income = disposable_income;
+	public void setCash(double cash) {
+		this.cash = cash;
 	}
 
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		NumberFormat formatter = NumberFormat.getCurrencyInstance();
-		return this.getFirst_name() + " " + this.getLast_name() + " has " + formatter.format(this.getDisposable_income()) + " in their pocket";
+		return this.getFirst_name() + " " + this.getLast_name() + " has " + formatter.format(this.getCash()) + " in their pocket";
+	}
+
+	public void debit(double transaction_total) {
+		if((this.cash -= transaction_total) > 0) this.cash -= transaction_total;
+		else throw new IllegalArgumentException("Not enough money.");
 	}
 }

@@ -2,7 +2,10 @@ package edu.albany.person.employee.cashier;
 
 import java.text.NumberFormat;
 
+import edu.albany.person.customer.Customer;
 import edu.albany.person.employee.Employee;
+import edu.albany.person.employee.sandwichmaker.SandwichMaker.Sandwich;
+import edu.albany.transaction.Transaction;
 
 /*
 * @author Luke R. Prescott 
@@ -11,7 +14,6 @@ import edu.albany.person.employee.Employee;
 * Start Date: April 17th, 2018
 *
 * Project Name: HW2
-* Package Name: edu.albany.person.employee.cashier
 * 
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * 
@@ -26,10 +28,9 @@ public class Cashier extends Employee{
 	/*
 	* Constructor accepting first name, last name, employee id, and cash register amount.
     */
-	public Cashier(String new_first_name, String new_last_name, int new_employee_id, double new_cash_register_amount) {
+	public Cashier(String new_first_name, String new_last_name, double new_cash_register_amount) {
 		this.setFirst_name(new_first_name);
 		this.setLast_name(new_last_name);
-		this.setEmployee_id(new_employee_id);
 		this.setCash_register_amount(new_cash_register_amount);
 	}
 
@@ -52,6 +53,20 @@ public class Cashier extends Employee{
 		// TODO Auto-generated method stub
 		NumberFormat formatter = NumberFormat.getCurrencyInstance();
 		return this.getFirst_name() + " " + this.getLast_name() + " with employee id " + this.getEmployee_id() + " has " + formatter.format(this.getCash_register_amount()) + " in their cash register.";
+	}
+	
+	public void printReceipt() {
+		
+	}
+
+	public void credit(double transaction_total) {
+		this.cash_register_amount += transaction_total;
+	}
+
+	public static void authenticate(Customer customer, Cashier cashier, Transaction test_transaction) {
+		double transaction_total = test_transaction.getPrice();
+		customer.debit(transaction_total);
+		cashier.credit(transaction_total);
 	}
 	
 }

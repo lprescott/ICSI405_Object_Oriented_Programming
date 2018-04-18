@@ -1,7 +1,5 @@
 package edu.albany.cargo;
 
-import edu.albany.problem1.Ship;
-
 /*
 * @author Luke R. Prescott 
 * Student ID: 001252879

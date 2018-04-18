@@ -1,6 +1,10 @@
 package edu.albany.person.employee.sandwichmaker;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import edu.albany.person.employee.Employee;
+import edu.albany.transaction.Transaction;
 
 /*
 * @author Luke R. Prescott 
@@ -9,7 +13,6 @@ import edu.albany.person.employee.Employee;
 * Start Date: April 17th, 2018
 *
 * Project Name: HW2
-* Package Name: edu.albany.person.employee.sandwichmaker
 * 
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * 
@@ -22,55 +25,49 @@ import edu.albany.person.employee.Employee;
 */
 public class SandwichMaker extends Employee{
 	
-	private Sandwich current_sandwich;
-	private int num_current_sandwiches;
+	Queue <Transaction> orders = new LinkedList<Transaction>();
 	
 	/*
 	* Constructor accepting first name, last name, employee id, and cash register amount.
     */
-	public SandwichMaker(String new_first_name, String new_last_name, int new_employee_id, Sandwich new_current_sandwich, int new_num_current_sandwiches) {
+	public SandwichMaker(String new_first_name, String new_last_name, Queue <Transaction> current_orders) {
 		this.setFirst_name(new_first_name);
 		this.setLast_name(new_last_name);
-		this.setEmployee_id(new_employee_id);
-		this.setCurrent_sandwich(new_current_sandwich);
-		this.setNum_current_sandwiches(new_num_current_sandwiches);
-	}
-	
-	/**
-	 * @return the current_sandwich
-	 */
-	public Sandwich getCurrent_sandwich() {
-		return current_sandwich;
+		this.setCurrent_Orders(current_orders);
 	}
 
-	/**
-	 * @param current_sandwich the current_sandwich to set
-	 */
-	public void setCurrent_sandwich(Sandwich current_sandwich) {
-		this.current_sandwich = current_sandwich;
+
+	private void setCurrent_Orders(Queue<Transaction> current_orders) {
+		// TODO Auto-generated method stub
+		this.orders = current_orders;
 	}
+
 
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return this.getFirst_name() + " " + this.getLast_name() + " (id: " + this.getEmployee_id() + ") is cooking " + this.getNum_current_sandwiches() + " " + this.getCurrent_sandwich().getName() + "(s).";
+		return null;
 	}
 	
 	/**
-	 * @return the num_current_sandwiches
+	 * @param the sandwich to be made
+	 *
 	 */
-	public int getNum_current_sandwiches() {
-		return num_current_sandwiches;
+	public void completeOrder(Transaction transaction_to_cater) {
+		try {
+			System.out.println("Starting order # " + Transaction.getCount());
+			for(Sandwich s : transaction_to_cater.getOrder()) {
+				wait(10);
+				System.out.println(s.getName() + "done.");
+			}			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("\"Order up!\"");
 	}
-
-	/**
-	 * @param num_current_sandwiches the num_current_sandwiches to set
-	 */
-	public void setNum_current_sandwiches(int num_current_sandwiches) {
-		this.num_current_sandwiches = num_current_sandwiches;
-	}
-
 	public enum Sandwich {
+		
 	    TURKEY("Turkey Sandwich", 5.89), 
 	    BBQ("BBQ Sandwich", 4.25),
 	    BLT("BLT Sandwich", 4.51),
@@ -79,6 +76,8 @@ public class SandwichMaker extends Employee{
 		
 		private String name;
 		private double price;
+		
+		private static int count = 5;
 		
 		Sandwich(String new_name, double new_price) {
 			this.name = new_name;
@@ -97,6 +96,13 @@ public class SandwichMaker extends Employee{
 		 */
 		public double getPrice() {
 			return price;
+		}
+
+		/**
+		 * @return the count
+		 */
+		public static int getCount() {
+			return count;
 		}
 		
 		public String toString() {

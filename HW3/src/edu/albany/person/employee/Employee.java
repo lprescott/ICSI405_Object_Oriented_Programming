@@ -9,8 +9,7 @@ import edu.albany.person.Person;
 * Start Date: April 17th, 2018
 *
 * Project Name: HW2
-* Package Name: edu.albany.person.employee
-* 
+*
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * 
 * Employee.java defines a abstract Employee object that extends Person with employee id.
@@ -19,7 +18,7 @@ import edu.albany.person.Person;
 */
 public abstract class Employee extends Person{
 	
-	private int employee_id;
+	private static int employee_id = 1;
 
 	/**
 	 * @return the employee_id
@@ -36,4 +35,8 @@ public abstract class Employee extends Person{
 	}
 	
 	public abstract String toString();
+	
+	public Employee() {
+		employee_id++;
+	}
 }

@@ -1,6 +1,6 @@
 package edu.albany.cruise;
 
-import edu.albany.problem1.Ship;
+import edu.albany.cargo.Ship;
 
 /*
 * @author Luke R. Prescott 

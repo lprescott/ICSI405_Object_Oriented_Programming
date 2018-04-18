@@ -1,8 +1,8 @@
 package edu.albany.problem1;
 
 import edu.albany.cargo.CargoShip;
+import edu.albany.cargo.Ship;
 import edu.albany.cruise.CruiseShip;
-import edu.albany.problem1.Ship;
 
 /*
 * @author Luke R. Prescott 
