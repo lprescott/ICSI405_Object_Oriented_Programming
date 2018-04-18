@@ -1,7 +1,6 @@
 package edu.albany.person.customer;
 
 import java.text.NumberFormat;
-
 import edu.albany.person.Person;
 
 /*
@@ -10,7 +9,7 @@ import edu.albany.person.Person;
 * 
 * Start Date: April 17th, 2018
 *
-* Project Name: HW2
+* Project Name: HW3
 * 
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * 
@@ -20,6 +19,7 @@ import edu.albany.person.Person;
 */
 public class Customer extends Person {
 	
+	//Instance variable(s)
 	private double cash;
 
 	/*
@@ -44,14 +44,20 @@ public class Customer extends Person {
 		this.cash = cash;
 	}
 
+	/*
+	 * This overriden function returns the customer's name and the money in their pocket.
+	 */
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		NumberFormat formatter = NumberFormat.getCurrencyInstance();
-		return this.getFirst_name() + " " + this.getLast_name() + " has " + formatter.format(this.getCash()) + " in their pocket";
+		return this.getFirst_name() + " " + this.getLast_name() + " has " + formatter.format(this.getCash()) + " in their pocket.";
 	}
 
-	public void debit(double transaction_total) {
+	/*  
+	 * The function pay takes a transaction total, and attempts to reduce the customers cash value 
+	 * if the new total is greater than 0. If not possible, this function throws an illegalargumentexception.
+	 */
+	public void pay(double transaction_total) {
 		if((this.cash -= transaction_total) > 0) this.cash -= transaction_total;
 		else throw new IllegalArgumentException("\"Sorry, I don't have enough\".");
 	}

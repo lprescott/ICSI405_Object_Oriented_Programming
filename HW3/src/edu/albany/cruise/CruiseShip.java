@@ -8,8 +8,7 @@ import edu.albany.cargo.Ship;
 * 
 * Start Date: April 16th, 2018
 *
-* Project Name: HW2
-* Package Name: edu.albany.cruise
+* Project Name: HW3
 * 
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * 

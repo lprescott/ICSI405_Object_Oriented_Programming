@@ -6,8 +6,7 @@ package edu.albany.cargo;
 * 
 * Start Date: April 16th, 2018
 *
-* Project Name: HW2
-* Package Name: edu.albany.ship
+* Project Name: HW3
 * 
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * 

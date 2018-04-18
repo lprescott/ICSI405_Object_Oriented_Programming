@@ -6,17 +6,19 @@ package edu.albany.person;
 * 
 * Start Date: April 17th, 2018
 *
-* Project Name: HW2
-* Package Name: edu.albany.person
+* Project Name: HW3
 * 
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * 
 * Person.java defines a abstract Person object with a first and last name.
+* 
+* This class also defines an abstract method toString()
 *
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 public abstract class Person {
 	
+	//Instance variable(s)
 	private String first_name;
 	private String last_name;
 	
@@ -45,9 +47,17 @@ public abstract class Person {
 		this.last_name = last_name;
 	}
 	
+	/*
+	 * The function getName return the first initial of a the person's first name, and their
+	 * last name seperated by a space.
+	 */
 	public String getName() {
 		return first_name.toCharArray()[0] + ". " + last_name;
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	public abstract String toString();
 }

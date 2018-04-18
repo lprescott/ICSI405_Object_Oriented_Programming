@@ -8,7 +8,7 @@ import edu.albany.person.Person;
 * 
 * Start Date: April 17th, 2018
 *
-* Project Name: HW2
+* Project Name: HW3
 *
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * 
@@ -18,7 +18,8 @@ import edu.albany.person.Person;
 */
 public abstract class Employee extends Person{
 	
-	private static int employee_id = 1;
+	//Static instance variable
+	protected static int employee_id = 1;
 
 	/**
 	 * @return the employee_id
@@ -31,11 +32,18 @@ public abstract class Employee extends Person{
 	 * @param employee_id the employee_id to set
 	 */
 	public void setEmployee_id(int employee_id) {
-		this.employee_id = employee_id;
+		Employee.employee_id = employee_id;
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see edu.albany.person.Person#toString()
+	 */
 	public abstract String toString();
 	
+	/*
+	 * This creates a default constructor for the Employee object that sets their employee id.
+	 */
 	public Employee() {
 		employee_id++;
 	}
