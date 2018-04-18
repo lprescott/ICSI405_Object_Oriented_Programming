@@ -45,5 +45,9 @@ public abstract class Person {
 		this.last_name = last_name;
 	}
 	
+	public String getName() {
+		return first_name.toCharArray()[0] + ". " + last_name;
+	}
+	
 	public abstract String toString();
 }

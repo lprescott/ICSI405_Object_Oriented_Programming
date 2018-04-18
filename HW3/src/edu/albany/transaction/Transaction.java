@@ -2,6 +2,9 @@ package edu.albany.transaction;
 
 import java.text.DecimalFormat;
 
+import edu.albany.person.customer.Customer;
+import edu.albany.person.employee.cashier.Cashier;
+import edu.albany.person.employee.sandwichmaker.SandwichMaker;
 import edu.albany.person.employee.sandwichmaker.SandwichMaker.Sandwich;
 
 public class Transaction {
@@ -55,17 +58,21 @@ public class Transaction {
 		count++;
 	}
 	
-	public void printReceipt() {
+	public void printReceipt(Customer customer, Cashier cashier, SandwichMaker cook) {
 		
-		System.out.println("Receipt (Order # " + Transaction.getCount() + "): ");
+		System.out.println("\nReceipt (Order # " + Transaction.getCount() + "): ");
 		System.out.println("-------------------------------");
-		System.out.println(String.format("%-25s%s" , "Total", "Price"));
+		System.out.println(String.format("%-25s%s" , "Type", "Price"));
 		System.out.println("-------------------------------");
 		for(Sandwich s : this.getOrder()) {
 			System.out.println(s.toString());
 		}
 		System.out.println("-------------------------------");
 		System.out.println(String.format("%-25s$%s" , "Total", this.getPrice()));
+		System.out.println("-------------------------------");
+		System.out.println("You are being served today by, ");
+		System.out.println(String.format("%20s, cashier", cashier.getName()));
+		System.out.println(String.format("%20s, cook", cook.getName()));
 
 		
 	}

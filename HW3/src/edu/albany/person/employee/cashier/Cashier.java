@@ -60,7 +60,11 @@ public class Cashier extends Employee{
 	}
 
 	public void credit(double transaction_total) {
-		this.cash_register_amount += transaction_total;
+		if((this.cash_register_amount += transaction_total)<300) {
+			this.cash_register_amount += transaction_total;
+		} else {
+			throw new IllegalArgumentException("\"Sorry, one moment, there is too much money in the register.\"");
+		}
 	}
 
 	public static void authenticate(Customer customer, Cashier cashier, Transaction test_transaction) {

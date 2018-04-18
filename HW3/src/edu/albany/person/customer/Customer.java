@@ -53,6 +53,6 @@ public class Customer extends Person {
 
 	public void debit(double transaction_total) {
 		if((this.cash -= transaction_total) > 0) this.cash -= transaction_total;
-		else throw new IllegalArgumentException("Not enough money.");
+		else throw new IllegalArgumentException("\"Sorry, I don't have enough\".");
 	}
 }

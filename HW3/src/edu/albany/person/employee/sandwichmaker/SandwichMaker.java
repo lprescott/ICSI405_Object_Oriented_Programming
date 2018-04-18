@@ -53,18 +53,13 @@ public class SandwichMaker extends Employee{
 	 * @param the sandwich to be made
 	 *
 	 */
-	public void completeOrder(Transaction transaction_to_cater) {
-		try {
-			System.out.println("Starting order # " + Transaction.getCount());
-			for(Sandwich s : transaction_to_cater.getOrder()) {
-				wait(10);
-				System.out.println(s.getName() + "done.");
-			}			
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println("\"Order up!\"");
+	public static void completeOrder(Transaction transaction_to_cater) {
+		System.out.println("\n\t\"Starting order number " + Transaction.getCount() + "!\"\n");
+		for(Sandwich s : transaction_to_cater.getOrder()) {
+			System.out.println("\t" + s.getName() + " ...done.");
+		}			
+	
+		System.out.println("\n\t\"Order up!\"");
 	}
 	public enum Sandwich {
 		
