@@ -1,7 +1,8 @@
-package edu.albany.ship;
+package edu.albany.problem1;
 
 import edu.albany.cargo.CargoShip;
 import edu.albany.cruise.CruiseShip;
+import edu.albany.problem1.Ship;
 
 /*
 * @author Luke R. Prescott 
@@ -22,7 +23,7 @@ import edu.albany.cruise.CruiseShip;
 *
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
-public class TestCase {
+public class ShipDriver {
 
 	public static void main(String[] args) {
 		//1. Demonstrate the classes in a program that has a Ship array. 

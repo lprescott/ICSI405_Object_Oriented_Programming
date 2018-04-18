@@ -1,4 +1,4 @@
-package edu.albany.ship;
+package edu.albany.problem1;
 
 /*
 * @author Luke R. Prescott 
