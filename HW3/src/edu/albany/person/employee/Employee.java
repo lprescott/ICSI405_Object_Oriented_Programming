@@ -22,10 +22,6 @@ public abstract class Employee extends Person{
 	protected static int count;
 	private int employee_id;
 
-	public Employee() {
-		this.employee_id = count++;
-	}
-	
 	/**
 	 * @return the count
 	 */

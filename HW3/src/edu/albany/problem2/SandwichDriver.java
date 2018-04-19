@@ -36,7 +36,7 @@ public class SandwichDriver {
 		SandwichMaker cook = new SandwichMaker("John", "Smith", null); //fN, lN, current_transaction
 		
 		//Printing the menu
-		Menu.printMenu();
+		Menu.Sandwich.printMenu();
 
 		//Cashier greets the customer
 		System.out.println("\n\t\"Hello, what can I get you?\"");

@@ -66,18 +66,18 @@ public class Menu {
 		public String toString() {
 			return String.format("%-25s$%s" , this.getName(), this.getPrice());
 		}
-	}
-	
-	/*
-	 * The printMenu loops through the Menu formatting and print the menu to aid in the
-	 * simulation.
-	 */
-	public static void printMenu() {
-		String seperator = "-------------------------------";
-		System.out.println("Menu\n" + seperator);
-		System.out.println(String.format("%-25s%s" , "Type", "Price" + "\n" + seperator));
-		for(Sandwich s: Sandwich.values()) {
-			System.out.println(s);
-		} System.out.println(seperator);
+		
+		/*
+		 * The printMenu loops through the Menu formatting and print the menu to aid in the
+		 * simulation.
+		 */
+		public static void printMenu() {
+			String seperator = "-------------------------------";
+			System.out.println("Menu\n" + seperator);
+			System.out.println(String.format("%-25s%s" , "Type", "Price" + "\n" + seperator));
+			for(Sandwich s: Sandwich.values()) {
+				System.out.println(s);
+			} System.out.println(seperator);
+		}
 	}
 }

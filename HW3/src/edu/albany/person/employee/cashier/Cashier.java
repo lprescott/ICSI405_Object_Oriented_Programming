@@ -59,14 +59,10 @@ public class Cashier extends Employee{
 	}
 
 	/*
-	 * This method adds money to the cash register if it is not above the limit of 300 dollars.
+	 * This method adds money to the cash register.
 	 */
 	public void receive(double transaction_total) {
-		if((this.cash_register_amount += transaction_total)<300) {
-			this.cash_register_amount += transaction_total;
-		} else {
-			throw new IllegalArgumentException("\"Sorry, there is too much money in the register -- please come back later.\"");
-		}
+		this.cash_register_amount += transaction_total;
 	}
 
 	/*
