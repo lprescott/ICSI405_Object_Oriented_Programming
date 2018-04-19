@@ -60,8 +60,7 @@ public class Menu {
 		}
 		
 		/*
-		 * (non-Javadoc)
-		 * @see java.lang.Enum#toString()
+		 * This function returns the sandwich item's name and price in a well formatted string.
 		 */
 		public String toString() {
 			return String.format("%-25s$%s" , this.getName(), this.getPrice());

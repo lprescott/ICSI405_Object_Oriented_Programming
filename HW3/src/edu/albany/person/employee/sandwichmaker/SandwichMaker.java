@@ -68,8 +68,7 @@ public class SandwichMaker extends Employee{
 
 
 	/*
-	 * (non-Javadoc)
-	 * @see edu.albany.person.employee.Employee#toString()
+	 * This overriden function returns the employees name only.
 	 */
 	@Override
 	public String toString() {

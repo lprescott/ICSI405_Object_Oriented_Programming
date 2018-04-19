@@ -49,8 +49,7 @@ public class Cashier extends Employee{
 	}
 
 	/*
-	 * (non-Javadoc)
-	 * @see edu.albany.person.employee.Employee#toString()
+	 * This overriden function returns the employee's name, id and money value in the register.
 	 */
 	@Override
 	public String toString() {
