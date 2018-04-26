@@ -18,7 +18,7 @@ package edu.albany.hw4;
 * 
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
-public class RGBColor extends SemiGroup<RGBColor> implements Complementable{
+public class RGBColor extends SemiGroup<RGBColor> implements Complementable<RGBColor>{
 
 	//Instance Variable(s)
 	private int r;
@@ -32,16 +32,25 @@ public class RGBColor extends SemiGroup<RGBColor> implements Complementable{
 		this.b = b;
 	}
 	
+	/*
+	 *  The complement operation
+	 * 	gives a new color whose components are each 255 minus the original.
+	 */
 	@Override
-	public Complementable<RGBColor> complement() {
-		// TODO Auto-generated method stub
-		return null;
+	public RGBColor complement() {
+		return new RGBColor(255 - this.getR(), 255 - this.getG(), 255 - this.getB());
 	}
 
+	/*
+	 *  The operate method returns 
+	 *  the (integer) average of the components of the two input colors.
+	 */
 	@Override
 	public RGBColor operate(RGBColor b) {
-		// TODO Auto-generated method stub
-		return null;
+		int avgr = (this.getR() + b.getR())/2;
+		int avgg = (this.getG() + b.getG())/2;
+		int avgb = (this.getB() + b.getB())/2;
+		return new RGBColor(avgr, avgg, avgb);
 	}
 
 	/**

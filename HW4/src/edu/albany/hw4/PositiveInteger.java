@@ -61,22 +61,23 @@ public class PositiveInteger extends SemiGroup<Integer> {
 	}
 
 	/*
-	 * This equals method attempts to compare the passed object with the current value by comparing references,
+	 * This equals method attempts to compare the passed numect with the current value by comparing references,
 	 * 	then classes, then casting and comparing using values equals method.
 	 */
-	public boolean equals(Object obj) {
+	public boolean equals(PositiveInteger num) {
 		//References
-		if (this == obj)
+		if (this == num)
 			return true;
-		if (obj == null)
+		if (num == null)
 			return false;
 		//Classes
-		if (getClass() != obj.getClass())
+		if (getClass() != num.getClass())
 			return false;
 		//Actual values
-		PositiveInteger other = (PositiveInteger) obj;
-		if (value != other.value)
+		PositiveInteger other = (PositiveInteger) num;
+		if (this.getValue() != other.getValue()) {
 			return false;
+		}
 		return true;
 	}
 

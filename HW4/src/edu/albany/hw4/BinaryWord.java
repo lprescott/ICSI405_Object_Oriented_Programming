@@ -22,7 +22,7 @@ import java.util.List;
 * 
 * 	The complement operation yields a bitwise inversion of the word.
 * 
-* 	A toString and equals method have also been implemented, the equals method accepts any object
+* 	A toString and equals method have also been implemented, the equals method accepts any wordect
 * 	and the toString method calls BitSet's toString.
 *
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -78,7 +78,7 @@ public class BinaryWord implements Complementable<BitSet>{
 	//	It yields a bitwise conversion of the word by looping through the current BitSet
 	//	and adding opposite values to a new Complementable<BitSet> using a constructor.
 	@Override
-	public Complementable<BitSet> complement() {
+	public BinaryWord complement() {
 		//Create an Integer length and a new arraylist of chars w/ that length
 		int length = this.getWord().length();
 		List<Character> newWord = new ArrayList<Character>();
@@ -93,7 +93,7 @@ public class BinaryWord implements Complementable<BitSet>{
 		}     //If a non-binary val is detected, throw an exception
 		
 		//Pass the created string to a BinaryWord constructor and return
-		Complementable<BitSet> complementable = new BinaryWord(newWord.toString());
+		BinaryWord complementable = new BinaryWord(newWord.toString());
 		return complementable;
 	}
 
@@ -114,28 +114,24 @@ public class BinaryWord implements Complementable<BitSet>{
 	 * 0
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 *
-	 * This equals method attempts to compare the passed object with the current BitSet by comparing references,
+	 * This equals method attempts to compare the passed wordect with the current BitSet by comparing references,
 	 * 	then classes, then casting and comparing using BitSet's equals method.
 	 */
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object word) {
 		//References
-		if (this == obj)
+		if (this == word)
 			return true;
-		if (obj == null)
+		if (word == null)
 			return false;
 		//Classes
-		if (getClass() != obj.getClass())
+		if (getClass() != word.getClass())
 			return false;
 		//Casting and using BitSet's equals method
-		BinaryWord other = (BinaryWord) obj;
-		if (word == null) {
-			if (other.word != null)
-				return false;
-		} else if (!word.equals(other.word))
+		BinaryWord other = (BinaryWord) word;
+		if(!this.getWord().equals(other)) {
 			return false;
-		
-		//reached true
+		}
 		return true;
 	}
 }
