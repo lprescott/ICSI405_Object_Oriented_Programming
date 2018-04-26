@@ -1,8 +1,10 @@
-package edu.albany.hw4;
+package edu.albany.hw4.binaryword;
 
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
+
+import edu.albany.hw4.Complementable;
 
 /*
 * @author Luke R. Prescott 

@@ -1,4 +1,4 @@
-package edu.albany.hw4;
+package edu.albany.hw4.semigroup;
 
 /*
 * @author Luke R. Prescott 

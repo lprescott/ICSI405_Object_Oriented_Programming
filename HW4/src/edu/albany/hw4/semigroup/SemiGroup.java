@@ -1,4 +1,4 @@
-package edu.albany.hw4;
+package edu.albany.hw4.semigroup;
 
 import java.util.Collection;
 

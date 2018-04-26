@@ -1,4 +1,6 @@
-package edu.albany.hw4;
+package edu.albany.hw4.semigroup;
+
+import edu.albany.hw4.Complementable;
 
 /*
 * @author Luke R. Prescott 
