@@ -1,8 +1,6 @@
 package edu.albany.hw4.binaryword;
 
-import java.util.ArrayList;
 import java.util.BitSet;
-import java.util.List;
 
 import edu.albany.hw4.Complementable;
 
@@ -18,14 +16,12 @@ import edu.albany.hw4.Complementable;
 * 
 * Binary.java implements the Complementable interface with BitSet as its underlying storage container. 
 * 	
-* 	There are two constructors, one that accepts a String that it will create a BitSet with the supplied 
-* 	values, and another that accepts a Integer which calls the previously mentioned constructor with 
-* 	a string representation of the Integer supplied.
+* 	There is one constructor that accepts a String of binary values, zeros and ones.
 * 
-* 	The complement operation yields a bitwise inversion of the word.
+* 	The complement operation yields a bitwise inversion of the current word.
 * 
-* 	A toString and equals method have also been implemented, the equals method accepts any wordect
-* 	and the toString method calls BitSet's toString.
+* 	A toString and equals method have also been implemented, for comparing to other BinaryWords and 
+* 	printing BinaryWords.
 *
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
@@ -33,7 +29,124 @@ public class BinaryWord implements Complementable<BitSet>{
 	
 	//Instance variable(s)
 	private BitSet word;
+	
+	public BinaryWord() {}
+	
+	//This constructor accepts a String as a parameter and loops through the 
+	//	length of the string assigning binary values when found to the instance 
+	//	variable word.
+	public BinaryWord(String newWord) {
+		
+		//Create a length integer and new BitSet with the supplied 
+		//	String's length
+		int length = newWord.length();
+		word = new BitSet(length);
+		
+		//Loop through the String setting values of the instance var word
+		for(int x = 0; x < length; x++) {
+			if(newWord.charAt(x) == '1') {
+				word.set(x, true);
+			} else if (newWord.charAt(x) == '0') {
+				word.set(x, false);
+			} else {
+				this.setWord(null);
+			}
+		}
+		
+		//Assign the newly created BitSet to the current objects word
+		this.setWord(word);
+	}
+	
+	/*
+	 * This method overrides the required method in the interface complementable.
+	 *	 It returns the bitwise complement of the current objects BitSet using a StringBuilder.
+	 */
+	@Override
+	public BinaryWord complement() {
+	
+		int count = 0;
+		
+		//Create an Integer length and a new StringBuilder
+		int length = this.getWord().length();
+        StringBuilder newWord = new StringBuilder();
 
+		//Loop through the current BitSet, adding OPPOSITE values to the new StringBuilder
+		for(int x = 0; x < length; x ++) {
+			if(this.getWord().get(x) == true) {
+				count++;
+				newWord.append('0');
+			} else if(this.getWord().get(x) == false) { 
+				count++;
+				newWord.append('1'); 
+			} else {
+				return null;
+			}
+		}
+
+		//Pass the created string to a BinaryWord constructor and return
+		BinaryWord complementable = new BinaryWord(newWord.toString());
+		return complementable;		
+	}
+
+
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 * 
+	 * This toString method returns the BinaryWord's String representation by looping through the indexes of the BitSet,
+	 * appending 0 or 1 depending to a new StringBuilder object.
+	 */
+	@Override
+	public String toString() {
+		
+		//Create an Integer length and a new arraylist of chars w/ that length
+		int length = this.getWord().length();
+        StringBuilder newWord = new StringBuilder();
+
+		
+		//Loop through the current BitSet, adding the values to the new StringBuilder
+		for(int x = 0; x < length; x ++) {
+			if(this.getWord().get(x) == true) {
+				newWord.append('1');
+			} else if(this.getWord().get(x) == false) { 
+				newWord.append('0'); 
+			} else {
+				return null;
+			}
+		}
+		
+		return newWord.toString();
+		
+	}
+
+	/*
+	 * (non-Javadoc
+	 * 0
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
+	 * This equals method attempts to compare the passed wordect with the current BitSet by comparing references,
+	 * 	then classes, then casting and comparing using BitSet's equals method.
+	 */
+	@Override
+	public boolean equals(Object word) {
+		//References
+		if (this == word) return true;
+		if (word == null) return false;
+		
+		//Classes
+		if (getClass() != word.getClass()) return false;
+		
+		//Casting and using BitSet's equals method
+		BinaryWord other = (BinaryWord) word;
+		if(this.getWord().equals(other.getWord())) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	//Getters and setters below
+	
 	/**
 	 * @return the word
 	 */
@@ -48,92 +161,4 @@ public class BinaryWord implements Complementable<BitSet>{
 		this.word = word;
 	}
 	
-	//This constructor converts the supplied Integer to a String and calls
-	//	the constructor that accepts Strings.
-	public BinaryWord(Integer newWord) {
-		this(Integer.toString(newWord));
-	}
-	
-	//This constructor accepts a String as a parameter and loops through the 
-	//	length of the string assigning binary values when found to the instance 
-	//	variable word.
-	public BinaryWord(String newWord) {
-		
-		//Create a length integer and new BitSet with the supplied 
-		//	String's length
-		int length = newWord.length();
-		word = new BitSet(length);
-		
-		//Loop through the String setting values of the intance var word
-		for(int x = 0; x < length; x++) {
-			if(newWord.charAt(x) == '1') {
-				word.set(x, 1);
-			} else if (newWord.charAt(x) == '0') {
-				word.set(x, 0);
-			} else { //If a non-binary val is detected, throw an exception
-				throw new IllegalArgumentException("Non-binary values detected.");
-			}
-		}
-	}
-	
-	//This method @overrides the complementables defined complement method.
-	//	It yields a bitwise conversion of the word by looping through the current BitSet
-	//	and adding opposite values to a new Complementable<BitSet> using a constructor.
-	@Override
-	public BinaryWord complement() {
-		//Create an Integer length and a new arraylist of chars w/ that length
-		int length = this.getWord().length();
-		List<Character> newWord = new ArrayList<Character>();
-		
-		//Loop through the current BitSet, adding OPPOSITE values to the new arraylist
-		for(int x = 0; x < length; x ++) {
-			if(this.getWord().get(x) == true) {
-				newWord.add('0');
-			} else if(this.getWord().get(x) == false) { 
-				newWord.add('1'); 
-			} else new IllegalArgumentException("Non-binary values detected.");
-		}     //If a non-binary val is detected, throw an exception
-		
-		//Pass the created string to a BinaryWord constructor and return
-		BinaryWord complementable = new BinaryWord(newWord.toString());
-		return complementable;
-	}
-
-
-	/*
-	 * (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 * 
-	 * This toString method returns the BinaryWord's String representation by calling BitSet's toString
-	 */
-	@Override
-	public String toString() {
-		return word.toString();
-	}
-
-	/*
-	 * (non-Javadoc
-	 * 0
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 *
-	 * This equals method attempts to compare the passed wordect with the current BitSet by comparing references,
-	 * 	then classes, then casting and comparing using BitSet's equals method.
-	 */
-	@Override
-	public boolean equals(Object word) {
-		//References
-		if (this == word)
-			return true;
-		if (word == null)
-			return false;
-		//Classes
-		if (getClass() != word.getClass())
-			return false;
-		//Casting and using BitSet's equals method
-		BinaryWord other = (BinaryWord) word;
-		if(!this.getWord().equals(other)) {
-			return false;
-		}
-		return true;
-	}
 }
