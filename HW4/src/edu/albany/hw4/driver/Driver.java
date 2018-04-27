@@ -4,6 +4,7 @@ import java.util.Random;
 
 import edu.albany.hw4.binaryword.BinaryWord;
 import edu.albany.hw4.semigroup.PositiveInteger;
+import edu.albany.hw4.semigroup.RGBColor;
 
 /*
 * @author Luke R. Prescott 
@@ -25,7 +26,7 @@ public class Driver {
 
 	public static void main(String[] args) {
 		
-		//BinaryWord Unit Tests
+		//BinaryWord Tests
 		System.out.printf("%35s", "BinaryWord Testing\n");
 		
 		BinaryWord test1 = new BinaryWord("01101000011001010110110001101100011");
@@ -47,7 +48,7 @@ public class Driver {
 		System.out.println(test1.complement().equals(test2.complement()));
 		
 		
-		//PositiveInteger Unit Tests
+		//PositiveInteger Tests
 		System.out.printf("%35s", "PositiveInteger Testing\n\n");
 
 		int sum = 0;
@@ -64,10 +65,18 @@ public class Driver {
 		System.out.printf("%-25s%-30s\n","Sum using operate function: ", operateSum);
 		System.out.print("Equals? "); System.out.print(operateSum.equals(new PositiveInteger(sum)));
 		
-		
-		//RGBColor Unit Tests
-		
-		
+		//RGBColor Tests
+		System.out.printf("\n\n%35s", "RGBColor Testing\n\n");
+
+		RGBColor testColor1 = new RGBColor(215, 210, 0);
+		RGBColor testColor2 = new RGBColor(0, 252, 251);
+		System.out.printf("%-15s%-30s\n","testColor1: ", testColor1);
+		System.out.printf("%-15s%-30s\n","testColor2: ", testColor2);
+		System.out.print("Equals? "); System.out.print(testColor1.equals(testColor2));
+
+		System.out.println("\n\nComplement of testColor1? "); System.out.print(testColor1.complement());
+		System.out.println("\nOperate on testColor1 and 2? "); System.out.print(testColor1.operate(testColor2));
+
 		//Other Required Unit Tests
 	}
 

@@ -97,4 +97,39 @@ public class RGBColor extends SemiGroup<RGBColor> implements Complementable<RGBC
 		this.b = b;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 * 
+	 * This toString methods prints the three instance variables of the RGBColor class.
+	 */
+	@Override
+	public String toString() {
+		return "RGBColor [r=" + r + ", g=" + g + ", b=" + b + "]";
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 * 
+	 * This equals methods compares a RGBColor object with another object.
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RGBColor other = (RGBColor) obj;
+		if (b != other.b)
+			return false;
+		if (g != other.g)
+			return false;
+		if (r != other.r)
+			return false;
+		return true;
+	}
+
 }
