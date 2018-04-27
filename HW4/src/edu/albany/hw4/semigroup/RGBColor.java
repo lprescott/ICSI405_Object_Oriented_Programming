@@ -134,5 +134,4 @@ public class RGBColor extends SemiGroup<RGBColor> implements Complementable<RGBC
 			return false;
 		return true;
 	}
-
 }

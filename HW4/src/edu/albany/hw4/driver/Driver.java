@@ -104,7 +104,5 @@ public class Driver {
 		System.out.println("\n\nComplement of testColor1: "); System.out.print(testColor1.complement());
 		System.out.println("\nOperate on testColor1 and 2: "); System.out.print(testColor1.operate(testColor2));
 		System.out.println("\nCombine on collection of testColor1, 2, and 3: "); System.out.print(RGBColor.combine(collection2));
-
 	}
-
 }

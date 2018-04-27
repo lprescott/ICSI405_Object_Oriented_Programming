@@ -155,6 +155,5 @@ public class BinaryWord implements Complementable<BitSet>{
 	 */
 	public void setWord(BitSet word) {
 		this.word = word;
-	}
-	
+	}	
 }

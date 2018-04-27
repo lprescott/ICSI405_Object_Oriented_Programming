@@ -80,8 +80,4 @@ public class PositiveInteger extends SemiGroup<PositiveInteger> {
 		}
 		return true;
 	}
-
-
-
-	
 }
