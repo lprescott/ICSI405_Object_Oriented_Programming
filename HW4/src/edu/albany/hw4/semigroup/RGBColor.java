@@ -107,7 +107,7 @@ public class RGBColor extends SemiGroup<RGBColor> implements Complementable<RGBC
 	 */
 	@Override
 	public String toString() {
-		return "RGBColor [r=" + r + ", g=" + g + ", b=" + b + "]";
+		return "(" + r + ", " + g + ", " + b + ")";
 	}
 
 	/*

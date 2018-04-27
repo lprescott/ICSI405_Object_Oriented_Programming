@@ -63,9 +63,7 @@ public class BinaryWord implements Complementable<BitSet>{
 	 */
 	@Override
 	public BinaryWord complement() {
-	
-		int count = 0;
-		
+			
 		//Create an Integer length and a new StringBuilder
 		int length = this.getWord().length();
         StringBuilder newWord = new StringBuilder();
@@ -73,10 +71,8 @@ public class BinaryWord implements Complementable<BitSet>{
 		//Loop through the current BitSet, adding OPPOSITE values to the new StringBuilder
 		for(int x = 0; x < length; x ++) {
 			if(this.getWord().get(x) == true) {
-				count++;
 				newWord.append('0');
 			} else if(this.getWord().get(x) == false) { 
-				count++;
 				newWord.append('1'); 
 			} else {
 				return null;
