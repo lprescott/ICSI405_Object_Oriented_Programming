@@ -31,8 +31,8 @@ public class PositiveInteger extends SemiGroup<PositiveInteger> {
 	//Overriden operate method that adds the passed integer to 
 	//	Positive Integers current val
 	@Override
-	public PositiveInteger operate(PositiveInteger b) {
-		return new PositiveInteger(this.getValue() + b.getValue());
+	public PositiveInteger operate(PositiveInteger other) {
+		return new PositiveInteger(this.getValue() + other.getValue());
 	}
 
 	/**

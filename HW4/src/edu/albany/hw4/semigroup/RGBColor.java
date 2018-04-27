@@ -51,10 +51,10 @@ public class RGBColor extends SemiGroup<RGBColor> implements Complementable<RGBC
 	 *  the (integer) average of the components of the two input colors.
 	 */
 	@Override
-	public RGBColor operate(RGBColor b) {
-		int avgr = (this.getR() + b.getR())/2;
-		int avgg = (this.getG() + b.getG())/2;
-		int avgb = (this.getB() + b.getB())/2;
+	public RGBColor operate(RGBColor other) {
+		int avgr = (this.getR() + other.getR())/2;
+		int avgg = (this.getG() + other.getG())/2;
+		int avgb = (this.getB() + other.getB())/2;
 		return new RGBColor(avgr, avgg, avgb);
 	}
 
@@ -118,20 +118,25 @@ public class RGBColor extends SemiGroup<RGBColor> implements Complementable<RGBC
 	 * This equals methods compares a RGBColor object with another object.
 	 */
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+	public boolean equals(Object other) {
+		//Refereces
+		if (this == other)
 			return true;
-		if (obj == null)
+		if (other == null)
 			return false;
-		if (getClass() != obj.getClass())
+		//Class
+		if (getClass() != other.getClass())
 			return false;
-		RGBColor other = (RGBColor) obj;
-		if (b != other.b)
+		//Cast and compare attributes
+		RGBColor castother = (RGBColor) other;
+		if (b != castother.b)
 			return false;
-		if (g != other.g)
+		if (g != castother.g)
 			return false;
-		if (r != other.r)
+		if (r != castother.r)
 			return false;
+		
+		//reached true
 		return true;
 	}
 }
