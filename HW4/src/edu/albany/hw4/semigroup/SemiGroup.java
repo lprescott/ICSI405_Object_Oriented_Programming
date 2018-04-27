@@ -1,6 +1,7 @@
 package edu.albany.hw4.semigroup;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 /*
 * @author Luke R. Prescott 
@@ -30,15 +31,17 @@ public abstract class SemiGroup<T> {
 	 */
 	public static <T extends SemiGroup<T>> T combine(Collection<T> list) {
 		
-		//Initialize to null
-		T sum = null;
+		T sum = list.iterator().next();
+		Iterator<T> iterator = list.iterator();
+		iterator.next();
 		
-		//Loop through list
-		for(T iterator : list) {
-			sum = sum.operate(iterator);
-		}
+		//Iterate through the collection after assigning sum to be the first 
+		//	element and iterating once
+		while ( iterator.hasNext()){
+			T iteration = (T) iterator.next();
+			sum = sum.operate(iteration);
+     	}
 		
-		//return sum, the accumulation of operate
-		return sum;	
+		return sum;
 	}
 }

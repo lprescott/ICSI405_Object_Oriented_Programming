@@ -28,6 +28,8 @@ public class RGBColor extends SemiGroup<RGBColor> implements Complementable<RGBC
 	private int b;
 	
 	//Constructor
+	public RGBColor() {}
+	
 	public RGBColor(int r, int g, int b) {
 		this.r = r;
 		this.g = g;

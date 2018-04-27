@@ -18,7 +18,7 @@ package edu.albany.hw4.semigroup;
 * 
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
-public class PositiveInteger extends SemiGroup<Integer> {
+public class PositiveInteger extends SemiGroup<PositiveInteger> {
 
 	//Instance variables
 	private int value;
@@ -31,8 +31,8 @@ public class PositiveInteger extends SemiGroup<Integer> {
 	//Overriden operate method that adds the passed integer to 
 	//	Positive Integers current val
 	@Override
-	public Integer operate(Integer b) {
-		return this.getValue() + b;
+	public PositiveInteger operate(PositiveInteger b) {
+		return new PositiveInteger(this.getValue() + b.getValue());
 	}
 
 	/**
@@ -80,6 +80,8 @@ public class PositiveInteger extends SemiGroup<Integer> {
 		}
 		return true;
 	}
+
+
 
 	
 }
