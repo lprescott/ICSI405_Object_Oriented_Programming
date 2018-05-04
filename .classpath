@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="DesignPatterns/DesignPatterns/src"/>
+	<classpathentry kind="src" path="DesignPatterns/src"/>
+	<classpathentry kind="src" path="Generics/src"/>
+	<classpathentry kind="src" path="HW1/src"/>
+	<classpathentry kind="src" path="HW2/src"/>
+	<classpathentry kind="src" path="HW3/src"/>
+	<classpathentry kind="src" path="HW4 Sample/src"/>
+	<classpathentry kind="src" path="HW4/src"/>
+	<classpathentry kind="src" path="HW5/src"/>
+	<classpathentry kind="output" path="DesignPatterns/bin"/>
+</classpath>

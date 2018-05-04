@@ -53,6 +53,9 @@ public class Grep extends Command{
 	 * @param args the searchable regular expression
 	 */
 	public static void main(String[] args) {
+		
+		//Check start time
+		final long startTime = System.currentTimeMillis();
 
 		//Instance variable(s)
 		int argCount;
@@ -63,27 +66,20 @@ public class Grep extends Command{
 		//If there were 3 arguments supplied
 		if(argCount == 3) {
 			System.out.println("grep " + args[0] + " \'" + args[1] + "\' " + args[2]);
-			
-			/*
-			 * $ grep -n "unix" geekfile.txt
-			 * 	Output:
-			 * 1:unix is great os. unix is opensource. unix is free os.
-			 * 4:uNix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful. 
-			 * 
-			 */	
 
 			//Checking for valid commands
 			if ((isValidOption(args[0]) && (isValidPattern(args[1]) && (isValidFile(args[2]))))) {
 				
 				//Create a new command instance and call execute with valid args
 				instance = new Grep();
-				
-				final long startTime = System.currentTimeMillis();
 				instance.execute(args);
-				final long endTime = System.currentTimeMillis();
-
-				System.out.println("Total execution time: " + (endTime - startTime) );
 				
+				//Print timing
+				final long endTime = System.currentTimeMillis();
+				System.out.println(String.format("timing%10sms", (endTime - startTime))); 
+				
+				
+			  //Print correct error output
 			} else if (!isValidOption(args[0])){
 				
 				System.out.println("in-valid option");
@@ -95,7 +91,7 @@ public class Grep extends Command{
 				System.out.println("in-valid file");
 			}
 		
-			
+		  //Print expectation of args
 		} else {
 			System.out.println("This program expects three command line arguments.");
 		}
@@ -103,6 +99,12 @@ public class Grep extends Command{
 		
 	}
 
+	/**
+	 * This function uses the pattern, and file arguments to implement grep in java.
+	 * 	This function is not parallel.
+	 * 
+	 * @param args - the arguments accepted into the main method
+	 */
 	@Override
 	public void execute(String [] args) {
 		
@@ -113,16 +115,20 @@ public class Grep extends Command{
 		pattern = args[1];
 		file = args[2];
 		
+		//Set count and open file
 		int count = 0;		
 		File fp = new File(file);
 		
 		try {
+			
+			//Scan every line, incrementing count and using contains to search for pattern
 			Scanner sc = new Scanner(fp);
 			
 			while(sc.hasNextLine()) {
 				final String tempLine = sc.nextLine();
 				count++;
 				
+				//Print the lines of found patterns
 				if(tempLine.contains(pattern)) {
 					System.out.println(count + ":" + tempLine);
 				}
@@ -131,6 +137,7 @@ public class Grep extends Command{
 			
 		} catch (FileNotFoundException e) {
 
+			//Print in-valid file error
 			System.out.println("in-valid file");
 		}
 	}
