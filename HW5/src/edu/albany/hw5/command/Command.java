@@ -1,4 +1,4 @@
-package edu.albany.command;
+package edu.albany.hw5.command;
 
 import java.io.File;
 import java.util.regex.Pattern;
@@ -51,7 +51,6 @@ public abstract class Command {
 		}
 	}
 
-	public abstract void execute(String [] args);
 
 	/**
 	 * @return the instance
@@ -66,4 +65,5 @@ public abstract class Command {
 	public static void setInstance(Command instance) {
 		Command.instance = instance;
 	}
+
 }

@@ -1,10 +1,10 @@
-package edu.albany.command.grep;
+package edu.albany.hw5.command.grep;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import edu.albany.command.Command;
+import edu.albany.hw5.command.Command;
 
 /*
 * @author Luke R. Prescott 
@@ -16,7 +16,24 @@ import edu.albany.command.Command;
 * 
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * 
-* @file Grep.java is the non-parrallel implementation of grep
+* @file Grep.java is the non-parallel implementation of grep
+* 
+*  
+* It takes commands in the form:
+* 					grep -option pattern filePath
+* 
+*					-option ~ only -n is accepted thus far, prints the lines that a given pattern have appeared in.
+*
+*					pattern ~ any regular expression is accepted, to be searched for
+*
+*					filePath ~ can be the local path or an absolute path value
+*
+
+* The Unix grep program finds lines that match a regular expression. This is a java version of grep.
+* 
+* 
+*~~~~~~~~~~~~~~INFO~~~~~~~~~~~~~~~
+*
 * 
 * The Unix grep program finds lines that match a regular expression. This is a java version of grep.
 * 
@@ -46,6 +63,10 @@ public class Grep extends Command{
 	
 	private static Grep instance;
 	
+	private String option; //the accepted option, -n for now
+	private String pattern; //pattern is the regular expression to search for
+	private String file; //file is the absolute path, or local path of a file to search in
+	
 	/**
 	 * This main method can accept one arguments, a string to be searched for, that is optionally
 	 * surrounded by quotes. Any regular expressions are acceptable.
@@ -55,7 +76,7 @@ public class Grep extends Command{
 	public static void main(String[] args) {
 		
 		//Check start time
-		final long startTime = System.currentTimeMillis();
+		final long start = System.nanoTime();
 
 		//Instance variable(s)
 		int argCount;
@@ -72,12 +93,11 @@ public class Grep extends Command{
 				
 				//Create a new command instance and call execute with valid args
 				instance = new Grep();
-				instance.execute(args);
+				instance.setOption(args[0]);
+				instance.setPattern(args[1]);
+				instance.setFile(args[2]);
 				
-				//Print timing
-				final long endTime = System.currentTimeMillis();
-				System.out.println(String.format("timing%10sms", (endTime - startTime))); 
-				
+				instance.execute();
 				
 			  //Print correct error output
 			} else if (!isValidOption(args[0])){
@@ -96,28 +116,21 @@ public class Grep extends Command{
 			System.out.println("This program expects three command line arguments.");
 		}
 		
+		//Print timing
+		//Print timing
+		System.out.println(String.format("timing%10sms", (System.nanoTime() - start)/1000000)); 
 		
 	}
 
 	/**
 	 * This function uses the pattern, and file arguments to implement grep in java.
 	 * 	This function is not parallel.
-	 * 
-	 * @param args - the arguments accepted into the main method
 	 */
-	@Override
-	public void execute(String [] args) {
-		
-		String pattern; //pattern is the regular expression to search for
-		String file; //file is the absolute path, or local path of a file to search in
-		
-		//Assign to args
-		pattern = args[1];
-		file = args[2];
+	public void execute() {
 		
 		//Set count and open file
 		int count = 0;		
-		File fp = new File(file);
+		File fp = new File(this.getFile());
 		
 		try {
 			
@@ -129,7 +142,7 @@ public class Grep extends Command{
 				count++;
 				
 				//Print the lines of found patterns
-				if(tempLine.contains(pattern)) {
+				if(tempLine.contains(this.getPattern())) {
 					System.out.println(count + ":" + tempLine);
 				}
 			}
@@ -140,5 +153,52 @@ public class Grep extends Command{
 			//Print in-valid file error
 			System.out.println("in-valid file");
 		}
+	}
+	
+	/**
+	 * @return the option
+	 */
+	public String getOption() {
+		return option;
+	}
+
+
+	/**
+	 * @param option the option to set
+	 */
+	public void setOption(String option) {
+		this.option = option;
+	}
+
+
+	/**
+	 * @return the pattern
+	 */
+	public String getPattern() {
+		return pattern;
+	}
+
+
+	/**
+	 * @param pattern the pattern to set
+	 */
+	public void setPattern(String pattern) {
+		this.pattern = pattern;
+	}
+
+
+	/**
+	 * @return the file
+	 */
+	public String getFile() {
+		return file;
+	}
+
+
+	/**
+	 * @param file the file to set
+	 */
+	public void setFile(String file) {
+		this.file = file;
 	}
 }
