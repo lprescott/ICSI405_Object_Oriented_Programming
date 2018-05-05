@@ -1,10 +1,12 @@
-package edu.albany.hw5.command.grep;
+package edu.albany.hw5.driver;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import edu.albany.hw5.command.Command;
+import edu.albany.hw5.command.grep.Grep;
+import edu.albany.hw5.command.grep.ParallelGrep;
+
 
 /*
 * @author Luke R. Prescott 
@@ -16,11 +18,12 @@ import edu.albany.hw5.command.Command;
 * 
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * 
-* @file Grep.java is the non-parallel implementation of grep
+* @file Driver.java accepts command lines arguments the same as grep or parallelgrep, but runs both as to more easily
+*					compare the two.
 * 
 *  
 * It takes commands in the form:
-* 					Grep -option pattern filePath
+* 					driver -option pattern filePath
 * 
 *					-option ~ only -n is accepted thus far, prints the lines that a given pattern have appeared in.
 *
@@ -59,23 +62,14 @@ import edu.albany.hw5.command.Command;
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *
 */
-public class Grep extends Command{
-	
-	private static Grep instance;
-	
-	private String option; //the accepted option, -n for now
-	private String pattern; //pattern is the regular expression to search for
-	private String file; //file is the absolute path, or local path of a file to search in
-	
+public class Driver {
+
 	/**
 	 * This main method can accept three arguments, option, pattern then file/
 	 * 
 	 * @param args -option pattern file
 	 */
 	public static void main(String[] args) {
-		
-		//Check start time
-		final long start = System.nanoTime();
 
 		//Instance variable(s)
 		int argCount;
@@ -88,24 +82,44 @@ public class Grep extends Command{
 			//System.out.println("grep " + args[0] + " \'" + args[1] + "\' " + args[2]);
 
 			//Checking for valid commands
-			if ((isValidOption(args[0]) && (isValidPattern(args[1]) && (isValidFile(args[2]))))) {
+			if ((Command.isValidOption(args[0]) && (Command.isValidPattern(args[1]) && (Command.isValidFile(args[2]))))) {
 				
-				//Create a new command instance and call execute with valid args
-				instance = new Grep();
-				instance.setOption(args[0]);
-				instance.setPattern(args[1]);
-				instance.setFile(args[2]);
+				//Change output stream as to stop Grep and ParallelGrep from printing to stdout
+			    ByteArrayOutputStream outstream = new ByteArrayOutputStream();
+			    PrintStream printstream = new PrintStream(outstream);
+			    PrintStream oldstream = System.out;
+			    System.setOut(printstream);
+			    
+			    //Time both grep and parallelgrep individually
+				final long grepStart = System.nanoTime();
+				Grep.main(args);
+				long grepTime =  (System.nanoTime() - grepStart)/1000000;
 				
-				instance.execute();
-				
+				final long parallelStart = System.nanoTime();
+				ParallelGrep.main(args);
+				long parallelTime =  (System.nanoTime() - parallelStart)/1000000;
+
+				//Return to old out stream
+			    System.out.flush();
+			    System.setOut(oldstream);
+
+			    //Print timings, difference and notes
+			    System.out.println("For grep output, call Grep or ParallelGrep directly -- this class is for timing purposes.\n"
+			    		+ "Note that this class still takes output as Grep and ParallelGrep do.\n");
+			    
+			    System.out.printf("%-30.30s  %-30s%n", "Grep timing", grepTime + "ms");
+			    System.out.printf("%-30.30s  %-30s%n", "ParallelGrep timing", parallelTime + "ms");
+
+			    System.out.printf("\n%-30.30s  %-30s%n", "difference", grepTime-parallelTime + "ms");
+
 			  //Print correct error output
-			} else if (!isValidOption(args[0])){
+			} else if (!Command.isValidOption(args[0])){
 				
 				System.out.println("in-valid option");
-			} else if (!isValidPattern(args[1])){
+			} else if (!Command.isValidPattern(args[1])){
 				
 				System.out.println("in-valid pattern");
-			} else if (!isValidFile(args[2])){
+			} else if (!Command.isValidFile(args[2])){
 				
 				System.out.println("in-valid file");
 			}
@@ -114,88 +128,5 @@ public class Grep extends Command{
 		} else {
 			System.out.println("This program expects three command line arguments.");
 		}
-		
-		//Print timing
-		System.out.println(String.format("\ntiming%10sms", (System.nanoTime() - start)/1000000)); 
-	}
-
-	/**
-	 * This function uses the pattern, and file arguments to implement grep in java.
-	 * 	This function is not parallel.
-	 */
-	public void execute() {
-		
-		//Set count and open file
-		int count = 0;		
-		File fp = new File(this.getFile());
-		
-		try {
-			
-			//Scan every line, incrementing count and using contains to search for pattern
-			Scanner sc = new Scanner(fp);
-			
-			while(sc.hasNextLine()) {
-				final String tempLine = sc.nextLine();
-				count++;
-				
-				//Print the lines of found patterns
-				if(tempLine.contains(this.getPattern())) {
-					System.out.println(count + ":" + tempLine);
-				}
-			}
-			sc.close();
-			
-		} catch (FileNotFoundException e) {
-
-			//Print in-valid file error
-			System.out.println("in-valid file");
-		}
-	}
-	
-	/**
-	 * @return the option
-	 */
-	public String getOption() {
-		return option;
-	}
-
-
-	/**
-	 * @param option the option to set
-	 */
-	public void setOption(String option) {
-		this.option = option;
-	}
-
-
-	/**
-	 * @return the pattern
-	 */
-	public String getPattern() {
-		return pattern;
-	}
-
-
-	/**
-	 * @param pattern the pattern to set
-	 */
-	public void setPattern(String pattern) {
-		this.pattern = pattern;
-	}
-
-
-	/**
-	 * @return the file
-	 */
-	public String getFile() {
-		return file;
-	}
-
-
-	/**
-	 * @param file the file to set
-	 */
-	public void setFile(String file) {
-		this.file = file;
 	}
 }

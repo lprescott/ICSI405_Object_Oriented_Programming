@@ -25,7 +25,7 @@ import edu.albany.hw5.command.Command;
 * 
 * 
 * It takes commands in the form:
-* 					grep -option pattern filePath
+* 					ParallelGrep -option pattern filePath
 * 
 *					-option ~ only -n is accepted thus far, prints the lines that a given pattern have appeared in.
 *
@@ -70,10 +70,9 @@ public class ParallelGrep extends Command{
 	private String file; //file is the absolute path, or local path of a file to search in
 	
 	/**
-	 * This main method can accept one arguments, a string to be searched for, that is optionally
-	 * surrounded by quotes. Any regular expressions are acceptable.
+	 * This main method can accept three arguments, option, pattern then file/
 	 * 
-	 * @param args the searchable regular expression
+	 * @param args -option pattern file
 	 */
 	public static void main(String[] args) {
 		
@@ -88,8 +87,8 @@ public class ParallelGrep extends Command{
 				
 		//If there were 3 arguments supplied
 		if(argCount == 3) {
-			System.out.println("(parallel)");
-			System.out.println("grep " + args[0] + " \'" + args[1] + "\' " + args[2]);
+			//System.out.println("(parallel)");
+			//System.out.println("grep " + args[0] + " \'" + args[1] + "\' " + args[2]);
 
 			//Checking for valid commands
 			if ((isValidOption(args[0]) && (isValidPattern(args[1]) && (isValidFile(args[2]))))) {
@@ -121,8 +120,7 @@ public class ParallelGrep extends Command{
 		}
 		
 		//Print timing
-		System.out.println(String.format("timing%10sms", (System.nanoTime() - start)/1000000)); 
-		
+		System.out.println(String.format("\ntiming%10sms", (System.nanoTime() - start)/1000000)); 
 	}	
 	
 	/**
