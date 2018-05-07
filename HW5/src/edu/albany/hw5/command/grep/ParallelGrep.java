@@ -120,7 +120,7 @@ public class ParallelGrep extends Command{
 		}
 		
 		//Print timing
-		System.out.println(String.format("\ntiming%10sms", (System.nanoTime() - start)/1000000)); 
+		System.out.println(String.format("\ntiming%10sms\n", (System.nanoTime() - start)/1000000)); 
 	}	
 	
 	/**

@@ -18,8 +18,8 @@ import edu.albany.hw5.command.grep.ParallelGrep;
 * 
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * 
-* @file Driver.java accepts command lines arguments the same as grep or parallelgrep, but runs both as to more easily
-*					compare the two.
+* @file Driver.java accepts command lines arguments the same as grep or parallelgrep, but runs both only printing timeing
+* 					as to more easily compare the two.
 * 
 *  
 * It takes commands in the form:
@@ -110,7 +110,10 @@ public class Driver {
 			    System.out.printf("%-30.30s  %-30s%n", "Grep timing", grepTime + "ms");
 			    System.out.printf("%-30.30s  %-30s%n", "ParallelGrep timing", parallelTime + "ms");
 
+			    //Print details
 			    System.out.printf("\n%-30.30s  %-30s%n", "difference", grepTime-parallelTime + "ms");
+			    System.out.printf("%-30.30s  %-30s%n", "ratio", grepTime/parallelTime + "x faster");
+
 
 			  //Print correct error output
 			} else if (!Command.isValidOption(args[0])){
