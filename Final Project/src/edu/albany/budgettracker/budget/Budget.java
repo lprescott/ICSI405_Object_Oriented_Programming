@@ -16,6 +16,10 @@ public class Budget {
 		this.setExpenditures(expenditures);
 	}
 
+	public Budget() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * @return the netIncome
 	 */
@@ -99,5 +103,10 @@ public class Budget {
 		if (Double.doubleToLongBits(netIncome) != Double.doubleToLongBits(other.netIncome))
 			return false;
 		return true;
+	}
+
+	public void printDetails() {
+		// TODO Auto-generated method stub
+		
 	}
 }

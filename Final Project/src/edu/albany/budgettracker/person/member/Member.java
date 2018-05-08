@@ -32,6 +32,10 @@ public class Member extends Person implements Budgetable<Member>{
 		this.income = income;
 	}
 
+	public Member() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * @return the income
 	 */
