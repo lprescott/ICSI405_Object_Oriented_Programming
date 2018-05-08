@@ -1,5 +1,5 @@
 package edu.albany.budgettracker.budget;
 
-public class Budgetable {
-
+public interface Budgetable<T> {
+	public Budget createBudget(Budgetable<T> input);
 }
