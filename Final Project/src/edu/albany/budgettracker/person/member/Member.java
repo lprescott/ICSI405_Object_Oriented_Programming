@@ -8,11 +8,7 @@ public class Member extends Person implements Budgetable<Member>{
 
 	private double income;
 	
-	@Override
-	public Budget createBudget(Budgetable<Member> input) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	@Override
 	public String toString() {
@@ -78,6 +74,12 @@ public class Member extends Person implements Budgetable<Member>{
 		if (Double.doubleToLongBits(income) != Double.doubleToLongBits(other.income))
 			return false;
 		return true;
+	}
+
+	@Override
+	public void printBudget(Budget input) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

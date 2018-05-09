@@ -14,11 +14,6 @@ public class User extends Person implements Budgetable<User>{
 	private boolean hasGroupBudget;
 	private double income;
 	
-	@Override
-	public Budget createBudget(Budgetable<User> input) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public String toString() {
@@ -154,5 +149,14 @@ public class User extends Person implements Budgetable<User>{
 	 */
 	public void setIncome(double income) {
 		this.income = income;
+	}
+
+	@Override
+	public void printBudget(Budget input) {
+		if(input.getDeductions() == 0 && input.getNetIncome() == 0) {
+			System.out.println("Expenditures given.");
+		} else {
+			System.out.println("Yearly figures given.");
+		}
 	}
 }

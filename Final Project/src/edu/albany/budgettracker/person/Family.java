@@ -10,11 +10,7 @@ public class Family implements Budgetable<Family> {
 	private ArrayList<Person> members;
 	private Budget familyBudget;
 	
-	@Override
-	public Budget createBudget(Budgetable<Family> input) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	/**
 	 * @return the instance
@@ -70,5 +66,12 @@ public class Family implements Budgetable<Family> {
 	@Override
 	public String toString() {
 		return "Family [members=" + members + ", familyBudget=" + familyBudget + "]";
+	}
+
+
+	@Override
+	public void printBudget(Budget input) {
+		// TODO Auto-generated method stub
+		
 	}
 }

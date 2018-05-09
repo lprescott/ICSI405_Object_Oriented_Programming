@@ -105,8 +105,4 @@ public class Budget {
 		return true;
 	}
 
-	public void printDetails() {
-		// TODO Auto-generated method stub
-		
-	}
 }

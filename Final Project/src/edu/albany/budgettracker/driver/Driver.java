@@ -118,11 +118,10 @@ public class Driver {
 				return;
 			}
 			
-			System.out.println("\n \tHello " + singleUser.getFirstName() + " " + singleUser.getLastName() + " age, " + singleUser.getAge() + ".");
+			System.out.print("\n \tHello " + singleUser.getFirstName() + " " + singleUser.getLastName() + " age, " + singleUser.getAge() + ".");
 			
 			
 			if(budgetViaExpenditures == 1) {
-				System.out.println("\tYou have selected to create a budget via expenditures.");
 				System.out.print("\n \t"+ ++qCount +") Regularity (Daily, Weekly, Monthly, Semi-Annually, Annually)? "
 						+ "\n \t(String) ");				
 				String regularity = scanner.nextLine().toLowerCase();
@@ -199,15 +198,17 @@ public class Driver {
 				}
 				while (!"end".equals(userInput));
 				
+				Budget testBudget = new Budget(0, 0, expenditures.toArray(new Expenditure[expenditures.size()]));
+
+				singleUser.printBudget(testBudget);
+
 				
 			} else {
-				System.out.println("\tYou have selected to create a budget via yearly figures.");
 				
 				Double netIncome, deductions;
-				
 	
 				netIncome = singleUser.getIncome();
-				System.out.println("\tYour income is: " + netIncome);
+				System.out.println("Your income is: " + netIncome);
 				
 				System.out.print("\n \t"+ ++qCount +") Deductions? "
 						+ "\n \t(Double) ");
@@ -216,7 +217,7 @@ public class Driver {
 				
 				Budget testBudget = new Budget(netIncome, deductions, null );
 				
-				testBudget.printDetails();
+				singleUser.printBudget(testBudget);
 
 			}
 		} else if(personCount > 1) {
@@ -252,42 +253,5 @@ public class Driver {
 		} 
 
 		scanner.close();
-	}
-
-	private static int budget(int qCount) {
-		Scanner scanner = new Scanner(System.in);
-		
-		System.out.print("\n \t" + qCount + ") Are you creating your budget via expenditures(1) or yearly figures(2). Type (3) for help."
-				+ "\n \t(int) ");
-		
-		int intAnswer = scanner.nextInt();
-		scanner.nextLine();
-		
-		if(intAnswer == 1) {
-			scanner.close();
-			return 1;
-		} else if(intAnswer == 2) {
-			scanner.close();
-			return 0;
-		} else if(intAnswer == 3) {
-			System.out.print("\n\t --via expenditures: User will create a budget by inputting one day's, week's, or month's, etc. expenditures.\n"
-					+ "\t --via yearly figures: User will create a budget by inputting one year's figures (net-income, deductions, etc.)."
-					+ "\n\n \t(int) ");
-			intAnswer = scanner.nextInt();
-			scanner.nextLine();
-			if(intAnswer == 1) {
-				scanner.close();
-				return 1;
-			} else if(intAnswer == 2) {
-				scanner.close();
-				return 0;
-			} else {
-				scanner.close();
-				return -1;
-			}
-		} else {
-			scanner.close();
-			return -1;
-		}
 	}
 }
