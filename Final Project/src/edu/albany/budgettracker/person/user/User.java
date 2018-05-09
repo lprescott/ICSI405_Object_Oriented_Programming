@@ -1,5 +1,7 @@
 package edu.albany.budgettracker.person.user;
 
+import java.util.ArrayList;
+
 import edu.albany.budgettracker.budget.Budget;
 import edu.albany.budgettracker.budget.Budgetable;
 import edu.albany.budgettracker.person.Person;
@@ -7,10 +9,10 @@ import edu.albany.budgettracker.person.Person;
 public class User extends Person implements Budgetable<User>{
 
 	private static User instance;
-	private double income;
 	private int userID;
 	private Budget personalBudget;
 	private boolean hasGroupBudget;
+	private double income;
 	
 	@Override
 	public Budget createBudget(Budgetable<User> input) {
@@ -20,19 +22,17 @@ public class User extends Person implements Budgetable<User>{
 
 	@Override
 	public String toString() {
-		return "User [income=" + income + ", userID=" + userID + ", personalBudget=" + personalBudget
+		return "User [userID=" + userID + ", personalBudget=" + personalBudget
 				+ ", hasGroupBudget=" + hasGroupBudget + "]";
 	}
 
-	public User(double income, int userID, Budget personalBudget, boolean hasGroupBudget) {
-		this.income = income;
+	public User( int userID, Budget personalBudget, boolean hasGroupBudget) {
 		this.userID = userID;
 		this.personalBudget = personalBudget;
 		this.hasGroupBudget = hasGroupBudget;
 	}
 	
-	public User(double income, int userID, Budget personalBudget, boolean hasGroupBudget, String firstName, String lastName, int age) {
-		this.income = income;
+	public User( int userID, Budget personalBudget, boolean hasGroupBudget, String firstName, String lastName, int age) {
 		this.userID = userID;
 		this.personalBudget = personalBudget;
 		this.hasGroupBudget = hasGroupBudget;
@@ -61,20 +61,6 @@ public class User extends Person implements Budgetable<User>{
 	 */
 	public static void setInstance(User instance) {
 		User.instance = instance;
-	}
-
-	/**
-	 * @return the income
-	 */
-	public double getIncome() {
-		return income;
-	}
-
-	/**
-	 * @param income the income to set
-	 */
-	public void setIncome(double income) {
-		this.income = income;
 	}
 
 	/**
@@ -127,9 +113,6 @@ public class User extends Person implements Budgetable<User>{
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + (hasGroupBudget ? 1231 : 1237);
-		long temp;
-		temp = Double.doubleToLongBits(income);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((personalBudget == null) ? 0 : personalBudget.hashCode());
 		result = prime * result + userID;
 		return result;
@@ -149,8 +132,6 @@ public class User extends Person implements Budgetable<User>{
 		User other = (User) obj;
 		if (hasGroupBudget != other.hasGroupBudget)
 			return false;
-		if (Double.doubleToLongBits(income) != Double.doubleToLongBits(other.income))
-			return false;
 		if (personalBudget == null) {
 			if (other.personalBudget != null)
 				return false;
@@ -161,4 +142,17 @@ public class User extends Person implements Budgetable<User>{
 		return true;
 	}
 
+	/**
+	 * @return the income
+	 */
+	public double getIncome() {
+		return income;
+	}
+
+	/**
+	 * @param income the income to set
+	 */
+	public void setIncome(double income) {
+		this.income = income;
+	}
 }
