@@ -1,5 +1,18 @@
 package edu.albany.budgettracker.budget.expenditure;
 
+/*
+* @author Luke R. Prescott 
+* Student ID: 001252879
+*
+* Project Name: Final Project - Budget Tracker
+* 
+* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* 
+* @file ExpenditureEnum.java is an enumeration that contains the recommended percetages of expenditures as of 2018.
+
+* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*
+*/
 public enum ExpenditureEnum {
 	HOUSING("housing", .35),
 	TRANSPORTATION("transportation", .15),

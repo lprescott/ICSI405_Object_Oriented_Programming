@@ -1,5 +1,18 @@
 package edu.albany.budgettracker.budget.expenditure;
 
+/*
+* @author Luke R. Prescott 
+* Student ID: 001252879
+*
+* Project Name: Final Project - Budget Tracker
+* 
+* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* 
+* @file Regularity.java is an enumeration that represents the possible intervals in which an expenditure may repeat.
+
+* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*
+*/
 public enum Regularity {
 	DAILY("daily", 365),
 	WEEKLY("weekly", 52.17857),
