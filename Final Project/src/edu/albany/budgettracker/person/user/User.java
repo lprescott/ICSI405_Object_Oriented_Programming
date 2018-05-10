@@ -1,7 +1,5 @@
 package edu.albany.budgettracker.person.user;
 
-import java.util.ArrayList;
-
 import edu.albany.budgettracker.budget.Budget;
 import edu.albany.budgettracker.budget.Budgetable;
 import edu.albany.budgettracker.person.Person;
@@ -151,12 +149,4 @@ public class User extends Person implements Budgetable<User>{
 		this.income = income;
 	}
 
-	@Override
-	public void printBudget(Budget input) {
-		if(input.getDeductions() == 0 && input.getNetIncome() == 0) {
-			System.out.println("Expenditures given.");
-		} else {
-			System.out.println("Yearly figures given.");
-		}
-	}
 }

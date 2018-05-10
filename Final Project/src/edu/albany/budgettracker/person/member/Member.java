@@ -7,8 +7,7 @@ import edu.albany.budgettracker.person.Person;
 public class Member extends Person implements Budgetable<Member>{
 
 	private double income;
-	
-
+	private Budget personalBudget;
 
 	@Override
 	public String toString() {
@@ -16,16 +15,14 @@ public class Member extends Person implements Budgetable<Member>{
 		return null;
 	}
 
-	public Member(double income) {
-		this.income = income;
-	}
-	
-	public Member(double income, String firstName, String lastName, int age) {
+
+	public Member(double income, String firstName, String lastName, int age, Budget budget) {
 		this.setFirstName(firstName);
 		this.setLastName(lastName);
 		this.setAge(age);
 		
 		this.income = income;
+		this.personalBudget = budget;
 	}
 
 	public Member() {
@@ -76,11 +73,17 @@ public class Member extends Person implements Budgetable<Member>{
 		return true;
 	}
 
-	@Override
-	public void printBudget(Budget input) {
-		// TODO Auto-generated method stub
-		
+	/**
+	 * @return the personalBudget
+	 */
+	public Budget getPersonalBudget() {
+		return personalBudget;
 	}
 
-
+	/**
+	 * @param personalBudget the personalBudget to set
+	 */
+	public void setPersonalBudget(Budget personalBudget) {
+		this.personalBudget = personalBudget;
+	}
 }

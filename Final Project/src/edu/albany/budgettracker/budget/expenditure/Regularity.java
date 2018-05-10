@@ -3,7 +3,7 @@ package edu.albany.budgettracker.budget.expenditure;
 public enum Regularity {
 	DAILY("daily", 365),
 	WEEKLY("weekly", 52.17857),
-	MONTHLY("montly", 12),
+	MONTHLY("monthly", 12),
 	SEMI_ANNUALLY("semi-annually", 2),
 	ANNUALLY("annually", 1);
 
