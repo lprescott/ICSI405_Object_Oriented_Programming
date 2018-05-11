@@ -190,7 +190,7 @@ public abstract class Person {
 			}
 			
 			//Print details
-			System.out.println("\nWith the savings of: " + savings + " each year."
+			System.out.println("\nWith the savings of: " + formatter.format(savings) + " each year."
 					+ "\n" + this.getFirstName() + " could retire in " + Math.round(1000000/savings) + " years with " + formatter.format(savings*(1000000/savings)) + " in savings.");
 			
 			System.out.println("That is the age of: " + (this.age + Math.round(1000000/(savings))));

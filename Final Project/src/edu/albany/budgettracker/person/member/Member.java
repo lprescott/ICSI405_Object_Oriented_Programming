@@ -1,7 +1,5 @@
 package edu.albany.budgettracker.person.member;
 
-import java.util.Scanner;
-
 import edu.albany.budgettracker.budget.Budget;
 import edu.albany.budgettracker.budget.Budgetable;
 import edu.albany.budgettracker.driver.Driver;
