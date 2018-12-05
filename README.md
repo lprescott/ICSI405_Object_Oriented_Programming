@@ -15,16 +15,16 @@ UML Diagrams are located in the folder UML Diagrams.
 ### Stock:
 ![alt text](https://github.com/lprescott/Object-Oriented-Programming/blob/master/UML%20Diagrams/Stock%20UML.jpg?raw=true)
 ### Morse:
-![alt text](![alt text](![alt text](![alt text](![alt text](https://github.com/lprescott/Object-Oriented-Programming/blob/master/UML%20Diagrams/Morse%20UML.jpg?raw=true)
+![alt text](https://github.com/lprescott/Object-Oriented-Programming/blob/master/UML%20Diagrams/Morse%20UML.jpg?raw=true)
 ### Car:
-![alt text](![alt text](![alt text](![alt text](![alt text](![alt text](https://github.com/lprescott/Object-Oriented-Programming/blob/master/UML%20Diagrams/Car%20UML.jpg?raw=true)
+![alt text](https://github.com/lprescott/Object-Oriented-Programming/blob/master/UML%20Diagrams/Car%20UML.jpg?raw=true)
 
 ## HW3:
 ### Problem 1:
-![alt text](![alt text](![alt text](![alt text](https://github.com/lprescott/Object-Oriented-Programming/blob/master/UML%20Diagrams/ICSI405%20-%20HW3%20-%20Problem1%20-%20UML%20Diagram.jpg?raw=true)
+![alt text](https://github.com/lprescott/Object-Oriented-Programming/blob/master/UML%20Diagrams/ICSI405%20-%20HW3%20-%20Problem1%20-%20UML%20Diagram.jpg?raw=true)
 ### Problem 2:
-![alt text](![alt text](![alt text](https://github.com/lprescott/Object-Oriented-Programming/blob/master/UML%20Diagrams/ICSI405%20-%20HW3%20-%20Problem2%20-%20Flow%20Diagram.jpg?raw=true)
-![alt text](![alt text](https://github.com/lprescott/Object-Oriented-Programming/blob/master/UML%20Diagrams/ICSI405%20-%20HW3%20-%20Problem2%20-%20UML%20Diagram.jpg?raw=true)
+![alt text](https://github.com/lprescott/Object-Oriented-Programming/blob/master/UML%20Diagrams/ICSI405%20-%20HW3%20-%20Problem2%20-%20Flow%20Diagram.jpg?raw=true)
+![alt text](https://github.com/lprescott/Object-Oriented-Programming/blob/master/UML%20Diagrams/ICSI405%20-%20HW3%20-%20Problem2%20-%20UML%20Diagram.jpg?raw=true)
 
 ## HW4:
 ![alt text](https://github.com/lprescott/Object-Oriented-Programming/blob/master/UML%20Diagrams/ICSI405-HW4-UML%20Diagram.jpg?raw=true)
